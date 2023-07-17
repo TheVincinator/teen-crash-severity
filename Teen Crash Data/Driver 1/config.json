@@ -1,0 +1,12 @@
+{
+  "file_path": "dataset/teen_accidents_driver_1.csv",
+  "n_estimators": 100,
+  "max_depth": 3,
+  "min_samples_leaf": 5,
+  "random_state": 100,
+  "num_features": 27,
+  "Y_columns": ["K_PEOPLE", "A_PEOPLE", "B_PEOPLE", "C_PEOPLE", "K_A_PEOPLE"],
+  "summary_name": "Teen Crashes",
+  "num_top_features": 5,
+  "num_top_feature_values": 5
+}
