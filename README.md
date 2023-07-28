@@ -1,47 +1,55 @@
 # driver-crash-severity
 
-This project was developed as part of the VCU Summer Research Opportunities in Engineering program. The research project, titled "Leveraging Machine Learning Insights to Enhance Teenage Driver Safety and Road Awareness," aims to improve driver safety in Virginia by identifying the primary causes of injury and death among teenage drivers using comprehensive datasets and machine learning techniques. By uncovering the significance of contributing factors, the project aims to propose targeted awareness programs and collaborative efforts to prevent car accidents and reduce fatalities on the roads.
+This project was part of the VCU Summer Research Opportunities in Engineering program, focusing on "Leveraging Machine Learning Insights to Enhance Teenage Driver Safety and Road Awareness." The main objective of this research is to improve driver safety in Virginia by identifying the primary causes of injuries and fatalities among teenage drivers through comprehensive datasets and machine learning. By uncovering significant contributing factors, the project aims to propose targeted awareness programs and collaborative efforts to prevent car accidents and reduce road fatalities.
 
 ## Getting Started
 
-The program is designed to work with the provided teen car crash data located in the 'dataset' folders for both 'Driver 1' and 'Driver 2'. However, you can also use this program with your own datasets by configuring some parameters. Simply execute the 'decision_tree.py' script, and it will generate PDF outputs of decision trees for you. The code will also produce a summary file containing information such as the accuracy of the decision tree classifier, the most important attributes, and the most frequently occurring feature values.
+To use this program, you can run it with the teen car crash data provided in the 'dataset' folders for both 'Driver 1' and 'Driver 2.' However, you also have the flexibility to apply the program to your own datasets. Simply follow the instructions below to configure the parameters and execute the 'decision_tree.py' script, which will generate PDF outputs of decision trees for you. Additionally, the code will create a summary file summarizing the accuracy of the decision tree classifier, the most important attributes, and the most frequently occurring feature values, among other details. To configure the parameters, you can edit the 'config.json' file.
 
-## Configuration Parameters
+### Configuring Parameters
 
-### config.json Parameters
+The 'config.json' file contains the following parameters:
 
-- `"file_path"`: Allows you to specify the file path to your dataset. The default file path points to the provided teen driver data. You can change this to the path of your desired dataset.
+1. `file_path`: Specify the desired file path to your dataset. The default is set to the teen driver's data. Feel free to change this to your desired dataset path.
 
-- `"tool"`: Specifies whether you want the code to output a 'sklearn' or 'RapidMiner' decision tree. The valid values are "sklearn", "RapidMiner", or "both".
+2. `tool`: Choose the type of decision tree output you prefer: "sklearn," "RapidMiner," or "both."
 
-- `"num_features"`: Lets you select the number of columns in your dataset that should be treated as attributes. For example, setting `"num_features": 30` means that the first 30 columns of your dataset will be considered attributes.
+3. `num_features`: Select the number of columns you want to consider as attributes in your dataset. For example, if you set "num_features" to 30, the first 30 columns of your dataset will be treated as attributes.
 
-### sklearn Configurations
+### Sklearn Configurations
 
-- `"max_depth"`: Sets the maximum depth or levels in the decision tree. This parameter controls the complexity of the tree and helps prevent overfitting.
+The following parameters are related to scikit-learn configurations:
 
-- `"min_samples_leaf"`: Sets the minimum number of samples required in a leaf node of the decision tree. This regularization parameter improves generalization.
+4. `max_depth`: Set the maximum depth or levels in the decision tree. This helps control complexity and prevent overfitting.
 
-- `"random_state"`: Sets the random seed for reproducibility in the algorithm. It is useful for comparing models and debugging.
+5. `min_samples_leaf`: Determine the minimum samples required in a leaf node. It aids in regularizing the tree and improving generalization.
 
-- `"Y_columns"`: Allows you to choose the columns that represent your target variables. Please provide the columns as a list, for example: `["column_1", "column_2", "column_3", "column_4"]`.
+6. `random_state`: Set the random seed for reproducibility in the algorithm. It is useful for model comparison and debugging.
 
-- `"summary_name"`: Lets you name your dataset in the 'output_summary.pdf' file. For instance, if you set `"summary_name": "Teen Crashes"`, the top of the 'output_summary.pdf' will display "Teen Crashes Dataset Summary:".
+7. `Y_columns`: Choose the columns you want as targets (dependent variables). Please specify the columns in a list format, like this: ["column_1", "column_2", "column_3", "column_4"].
 
-- `"num_top_features"`: Allows you to select the number of top features to display in the summary. For example, if you set `"num_top_features": 5`, the 'output_summary.pdf' will show the top five most important attributes in your dataset.
+8. `summary_name`: Name your dataset in the 'output_summary.pdf' file. For example, if "summary_name" is "Teen Crashes," the text at the top of the 'output_summary.pdf' will be "Teen Crashes Dataset Summary."
 
-- `"num_top_feature_values"`: Lets you configure the number of top feature values shown for the selected top features. For instance, setting `"num_top_feature_values": 5` will display the top five most frequently occurring values for the most important attributes in your dataset.
+9. `num_top_features`: Select the number of top features to display in the 'output_summary.pdf.' For instance, if you set the value to 5, the top five most important attributes in your dataset will be displayed.
 
-- `"display_all_tree_pdf"`: Allows you to choose whether to show the decision tree classifier for all your target columns combined. If you have more than one target column and want to see this decision tree, set this parameter to `true`. Valid options are 'true' or 'false'.
+10. `num_top_feature_values`: Configure the number of top feature values shown for the top features. If set to 5, the code will display the top five most frequently occurring values for the most important attributes in your dataset.
 
-- `"test_size"`: Lets you choose the test size for your decision tree. A value of 0.3 means that 30% of your data will be used for testing, and the remaining 70% will be used for training. Please configure this to suit your needs.
+11. `display_all_tree_pdf`: Choose whether to show the decision tree classifier for all your target columns combined. If you have multiple target columns and want to see this decision tree, enter 'true.' The available options are 'true' or 'false'.
+
+12. `test_size`: Set the test size for your decision tree. A value of 0.3 means that 30% of your data will be used for testing, while the remaining 70% will be used for training. Configure this value to suit your needs.
 
 ### RapidMiner Configurations
 
-Please note that these configurations are specific to the developer's use case and may not be relevant to your dataset. You can disregard these configurations unless they align with your specific requirements. If you do not need the program to convert values or create separate CSV files, feel free to modify this section of the code as needed.
+The following parameters are related to RapidMiner configurations:
 
-- `"remaining_rows_file_path"`: Allows you to specify the file path to export a CSV file containing dropped rows. This file can be imported into RapidMiner for further analysis.
+**Note:** These configurations were tailored to the author's specific needs and dataset. If you do not require them, feel free to modify or remove this section of the code.
 
-- `"target_columns_input"`: Lets you specify the target columns for easier data handling within 'RapidMiner'. Please provide the column names as a comma-separated list without brackets or parentheses, for example: `"column_1, column_2, column_3, column_4"`. Use only quotation marks to enclose the list.
+13. `remaining_rows_file_path`: Choose the file path to export a CSV file with dropped rows. This file can be imported into RapidMiner to run a decision tree classifier.
 
-Feel free to use this program to analyze your own datasets and adjust the configurations in the `config.json` file according to your needs. Happy analyzing!
+14. `target_columns_input`: Specify the target columns to facilitate working with data inside 'RapidMiner.' Please provide the columns without brackets or parenthesis, using quotation marks to close off the list (e.g., "column_1, column_2, column_3, column_4").
+
+## VDOT Crash Data Dictionary
+
+For your reference, the 'VDOT_Crash_Data_Dictionary_2022.pdf' file contains detailed information about each attribute and its corresponding values. You can use the crash dictionary to better understand the dataset attributes and their meanings.
+
+Feel free to reach out if you have any questions or need further assistance with the program! Happy analyzing!
