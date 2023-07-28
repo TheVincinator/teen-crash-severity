@@ -1,0 +1,26 @@
+{  
+  "file_path": "dataset/teen_accidents_driver_1_driver_2.csv",
+  "tool": "both",
+  "num_features": 38,
+
+
+  "//comment": "sklearn configurations",
+
+
+  "max_depth": 3,
+  "min_samples_leaf": 5,
+  "random_state": 100,
+  "Y_columns": ["K_PEOPLE", "A_PEOPLE", "B_PEOPLE", "C_PEOPLE"],
+  "summary_name": "Teen Crashes",
+  "num_top_features": 5,
+  "num_top_feature_values": 5,
+  "display_all_tree_pdf": true,
+  "test_size": 0.3,
+
+
+  "//comment": "RapidMiner configurations",
+
+
+  "remaining_rows_file_path": "pdf_outputs/csv_files/remaining_rows.csv",
+  "target_columns_input": "K_PEOPLE, A_PEOPLE, B_PEOPLE, C_PEOPLE"
+}
